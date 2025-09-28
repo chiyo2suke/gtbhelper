@@ -3,14 +3,14 @@
 export const banzuke1Config = [
   { prefix: "Y", range: [1] },
   { prefix: "O", range: [1] },
-  { prefix: "S", range: [1, 2] },
+  { prefix: "S", range: [1] },
   { prefix: "K", range: [1] },
-  { prefix: "M", range: Array.from({ length: 17 }, (_, i) => i + 1) },
+  { prefix: "M", range: Array.from({ length: 18 }, (_, i) => i + 1) },
   { divider: true },
   { prefix: "J", range: Array.from({ length: 14 }, (_, i) => i + 1) },
   { divider: true },
   { prefix: "Ms", range: Array.from({ length: 60 }, (_, i) => i + 1) },
-  { prefix: "TD", range: [""] },
+  { prefix: "Sd26", range: [""] },
 ];
 
 export const banzuke2Config = [
@@ -245,17 +245,15 @@ export function writeTableTitles(basho) {
   }
 
   // For second title - need to preserve the span element
-  const existingSpan = tableTitle[1].querySelector("span");
-  tableTitle[1].textContent = `${getBashoName(bashoMonth + 2)} ${nextYear} Makuuchi Guess - `;
+  const existingSpan = tableTitle[3].querySelector("span");
+  tableTitle[3].textContent = `${getBashoName(bashoMonth + 2)} ${nextYear} Makuuchi Guess - `;
   if (existingSpan) {
-    tableTitle[1].appendChild(existingSpan);
-    tableTitle[1].appendChild(
-      document.createTextNode(
-        existingSpan.nextSibling ? existingSpan.nextSibling.textContent : "",
-      ),
+    tableTitle[3].appendChild(existingSpan);
+    tableTitle[3].appendChild(
+      document.createTextNode("/42"),
     );
   }
 
   tableTitle[0].colSpan = "9";
-  tableTitle[1].colSpan = "11";
+  tableTitle[3].colSpan = "11";
 }
