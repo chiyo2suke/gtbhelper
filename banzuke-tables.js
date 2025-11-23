@@ -10,7 +10,6 @@ export const banzuke1Config = [
   { prefix: "J", range: Array.from({ length: 14 }, (_, i) => i + 1) },
   { divider: true },
   { prefix: "Ms", range: Array.from({ length: 60 }, (_, i) => i + 1) },
-  { prefix: "Sd26", range: [""] },
 ];
 
 export const banzuke2Config = [
