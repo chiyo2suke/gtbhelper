@@ -376,6 +376,7 @@ th {
 .ch1,
 .ch2 {
   min-width: 41px;
+  line-height: 13px;
 }
 
 .rs1,
