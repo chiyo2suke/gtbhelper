@@ -5,11 +5,14 @@ export const banzuke1Config = [
   { prefix: "O", range: [1] },
   { prefix: "S", range: [1] },
   { prefix: "K", range: [1] },
-  { prefix: "M", range: Array.from({ length: 18 }, (_, i) => i + 1) },
+  { prefix: "M", range: Array.from({ length: 17 }, (_, i) => i + 1) },
   { divider: true },
   { prefix: "J", range: Array.from({ length: 14 }, (_, i) => i + 1) },
   { divider: true },
   { prefix: "Ms", range: Array.from({ length: 60 }, (_, i) => i + 1) },
+  { prefix: "TD", range: [1] },
+  { divider: true },
+  { prefix: "Sd23", range: [1] },
 ];
 
 export const banzuke2Config = [
@@ -46,7 +49,7 @@ export function populateBanzukeTable(tableId, config, createRow) {
       tableBody.appendChild(dividerRow);
     } else {
       item.range.forEach((num) => {
-        const rank = item.prefix + num;
+        const rank = item.prefix.startsWith("Sd") ? item.prefix : item.prefix + num;
         const row = createRow(rank);
         tableBody.appendChild(row);
       });
@@ -244,15 +247,15 @@ export function writeTableTitles(basho) {
   }
 
   // For second title - need to preserve the span element
-  const existingSpan = tableTitle[3].querySelector("span");
-  tableTitle[3].textContent = `${getBashoName(bashoMonth + 2)} ${nextYear} Makuuchi Guess - `;
+  const existingSpan = tableTitle[4].querySelector("span");
+  tableTitle[4].textContent = `${getBashoName(bashoMonth + 2)} ${nextYear} Makuuchi Guess - `;
   if (existingSpan) {
-    tableTitle[3].appendChild(existingSpan);
-    tableTitle[3].appendChild(
+    tableTitle[4].appendChild(existingSpan);
+    tableTitle[4].appendChild(
       document.createTextNode("/42"),
     );
   }
 
   tableTitle[0].colSpan = "9";
-  tableTitle[3].colSpan = "11";
+  tableTitle[4].colSpan = "11";
 }
