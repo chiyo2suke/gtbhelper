@@ -10,9 +10,11 @@ export const banzuke1Config = [
   { prefix: "J", range: Array.from({ length: 14 }, (_, i) => i + 1) },
   { divider: true },
   { prefix: "Ms", range: Array.from({ length: 60 }, (_, i) => i + 1) },
-  { prefix: "TD", range: [1] },
+  { prefix: "TD", range: Array.from({ length: 1 }, (_, i) => i + 1) },
   { divider: true },
-  { prefix: "Sd23", range: [1] },
+  { prefix: "Sd3", range: [1] },
+  { prefix: "", range: [1] },
+  { prefix: "Sd21", range: [1] },
 ];
 
 export const banzuke2Config = [
@@ -49,7 +51,13 @@ export function populateBanzukeTable(tableId, config, createRow) {
       tableBody.appendChild(dividerRow);
     } else {
       item.range.forEach((num) => {
-        const rank = item.prefix.startsWith("Sd") ? item.prefix : item.prefix + num;
+        var rank = item.prefix;
+
+        if (item.prefix == "")
+          rank = "...";
+        else if (!item.prefix.startsWith("Sd"))
+          rank += num;
+
         const row = createRow(rank);
         tableBody.appendChild(row);
       });
