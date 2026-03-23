@@ -11,6 +11,13 @@ body {
   margin: 0;
 }
 
+#resetBanzuke {
+  padding: 3px 6px;
+  margin: 5px 0;
+  font-weight: bold;
+  color: red;
+}
+
 .ch1, .ch2 > * {
   margin: 2px;
 }
@@ -45,7 +52,8 @@ body {
 }
 
 .darkm #links {
-  background: gray;
+  background: linear-gradient(to right, #0000, lightgray, #0000);
+  text-shadow: 0 0 5px white;
 }
 
 @keyframes colorChange {
@@ -104,6 +112,8 @@ body {
 
 #gtb {
   font-family: Verdana;
+  font-variant: petite-caps;
+  font-size: 40px;
 }
 
 #plusJuryo {
@@ -115,14 +125,17 @@ header {
   padding: 2vw;
   background-color: #c2dcff;
   color: #181818;
-  box-shadow: 0 0 8px #8c8c8c;
-  border: 3px solid darkcyan;
+  box-shadow: 0 0 10px 10px #00000078;
 }
 
 h1 {
-  margin: 10px;
-  font-variant: petite-caps;
-  color: orangered;
+  margin: -2vw;
+  color: #010177;
+  width: auto;
+  text-shadow: 1px 1px white;
+  text-align: center;
+  padding: 2vw;
+  background: #8bf;
 }
 
 label {
@@ -130,8 +143,11 @@ label {
 }
 
 #links {
-  width: fit-content;
-  margin: 15px;
+  margin: 2vw -2vw;
+  text-align: center;
+  padding: 5px;
+  color: lightblue !important;
+  background: linear-gradient(to right, #0000, white, #0000);
 }
 
 #saveLoadProgress {
@@ -148,9 +164,6 @@ a:hover {
 
 header a {
   margin-right: 10px;
-}
-
-div a {
   color: darkblue;
 }
 
@@ -171,11 +184,10 @@ legend {
 #options {
   font-size: 10pt;
   line-height: 20pt;
-  margin-bottom: 10px;
-  margin-left: 4%;
   display: inline-flex;
   flex-wrap: wrap;
-  margin: 0 4% 15px 4%;
+  margin: 2vw;
+  align-items: flex-start;
 }
 
 .option {
@@ -583,14 +595,17 @@ footer {
 }
 
 #darkMode {
-  height: fit-content;
   font-weight: bold;
   margin: 5px;
-  background: #999;
-  padding: 0 4px;
-  border-radius: 5px;
-  border: 1px outset #949494;
-  color: black;
+  background: #303030;
+  padding: 3px 5px;
+  border-radius: 10px;
+  border: 1px solid #232323;
+  color: #e0e0e0;
+  text-shadow: none;
+  font-family: Verdana;
+  font-size: 14px;
+  box-shadow: -2px -2px 4px inset #6a6a6a;
 }
 
 .darkm {
@@ -604,11 +619,9 @@ footer {
 }
 
 .darkm header h1 {
-  background: #999;
-}
-
-.darkm header a {
-  color: black;
+  color: lightblue;
+  text-shadow: 1px 1px #000;
+  background: #233146;
 }
 
 .darkm #tableContainer {
@@ -713,6 +726,7 @@ footer {
   color: black;
   margin-top: 5px;
   border-spacing: 3px;
+  background: #636363;
 }
 
 #draftsTable td {
@@ -721,6 +735,7 @@ footer {
   white-space: nowrap;
   text-align: center;
   padding: 0 5px;
+  background: darkgray;
 }
 
 #saveDialog {
