@@ -18,18 +18,12 @@ for (var i = 0; i < 100; i++) {
   theRikishi[i] = shikonaCells[i].previousElementSibling.innerHTML + ' ' + shikonaCells[i].children[0].innerHTML + ' ' + shikonaCells[i].nextElementSibling.children[0].innerHTML;
   rikishiID[i]  = shikonaCells[i].children[0].href.split('=')[1];
 }
-*/
 var hrefHtmlUrl;
 
 if (window.location.href.startsWith("https://chiyo2suke"))
   hrefHtmlUrl = "https%3A%2F%2Fchiyo2suke.github.io%2Fgtbhelper";
 else hrefHtmlUrl = "https%3A%2F%2Fgtbhelper.vercel.app";
-$("#bookmarkletCode").attr(
-  "value",
-  "javascript:(function()%7Bif%20(!window.location.href.startsWith(%22http%3A%2F%2Fsumodb.sumogames.de%2Fgtb%2FGTBEntry.aspx%22))%20%7B%0A%20%20setTimeout(()%20%3D%3E%20%7B%0A%20%20%20%20alert(%22Please%20make%20sure%20you're%20on%20the%20GTB%20entry%20form%20page%20(and%20the%20URL%20starts%20with%20http%2C%20not%20https)%2C%20then%20try%20again.%22)%3B%0A%20%20%7D%2C%201000)%3B%0A%7D%0Aelse%20if%20(!document.querySelector(%22%23helperFrame%22))%20%7B%0A%20%20var%20frame%20%3D%20document.createElement(%22iframe%22)%3B%0A%20%20var%20helperUrl%20%3D%20%22" +
-    hrefHtmlUrl +
-    "%22%3B%0A%20%20var%20loadingBox%20%3D%20document.createElement(%22div%22)%3B%0A%0A%20%20loadingBox.innerText%20%3D%20%22Please%20wait...%22%3B%0A%20%20loadingBox.id%20%3D%20%22pleaseWaitBox%22%3B%0A%20%20loadingBox.style.cssText%20%3D%20%22border-radius%3A%2010px%3Bposition%3A%20fixed%3Btop%3A%2020px%3Bwidth%3A%20fit-content%3Bpadding%3A%2010px%2015px%3Bbackground%3A%20white%3Bleft%3A%2050%25%3Btransform%3A%20translateX(-50%25)%3Bborder%3A%201px%20outset%20gray%3Bbox-shadow%3A%205px%205px%203px%20%230006%3B%22%3B%0A%20%20document.body.appendChild(loadingBox)%3B%0A%20%20frame.setAttribute(%22src%22%2C%20helperUrl)%3B%0A%20%20frame.style.display%20%3D%20%22none%22%3B%0A%20%20frame.id%20%3D%20%22helperFrame%22%3B%0A%20%20frame.addEventListener(%22load%22%2C%20function()%20%7B%0A%20%20%20%20document.getElementById(%22pleaseWaitBox%22).remove()%3B%0A%20%20%20%20this.contentWindow.postMessage(%22Requesting%20data%22%2C%20'*')%3B%0A%20%20%7D)%3B%0A%20%20document.body.appendChild(frame)%3B%0A%20%20window.addEventListener(%22message%22%2C%20function(event)%20%7B%0A%20%20%20%20if%20(event.origin%20!%3D%20helperUrl)%20return%3B%0A%20%20%20%20if%20(event.data.message%20%3D%3D%20%22rikishi%20ids%22)%20%7B%0A%20%20%20%20%20%20var%20ids%20%3D%20event.data.ids%3B%0A%20%20%20%20%20%20var%20selects%20%3D%20document.getElementsByTagName(%22select%22)%3B%0A%20%20%20%20%20%20var%20rikishiCount%20%3D%200%3B%0A%20%20%20%20%20%20var%20doneBox%20%3D%20document.createElement(%22div%22)%3B%0A%0A%20%20%20%20%20%20for%20(var%20i%20%3D%200%3B%20i%20%3C%2058%3B%20i%2B%2B)%20%7B%0A%20%20%20%20%20%20%20%20selects%5Bi%5D.value%20%3D%20-1%3B%0A%20%20%20%20%20%20%20%20for%20(var%20j%20%3D%200%3B%20j%20%3C%20selects%5Bi%5D.options.length%3B%20j%2B%2B)%20%7B%0A%20%20%20%20%20%20%20%20%20%20if%20(selects%5Bi%5D.options%5Bj%5D.value%20%3D%3D%20ids%5Bi%5D)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20selects%5Bi%5D.value%20%3D%20ids%5Bi%5D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20(ids%5Bi%5D%20!%3D%20-1)%20rikishiCount%2B%2B%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20break%3B%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20if%20(rikishiCount%20!%3D%2042)%0A%20%20%20%20%20%20%20%20this.alert(%22Notice%3A%20Your%20entry%20has%20%22%20%2B%20rikishiCount%20%2B%20%22%20rikishi.%22)%3B%0A%20%20%20%20%20%20doneBox.innerText%20%3D%20%22Done!%22%3B%0A%20%20%20%20%20%20doneBox.id%20%3D%20%22doneBox%22%3B%0A%20%20%20%20%20%20doneBox.style.cssText%20%3D%20%22border-radius%3A%2010px%3Bposition%3A%20fixed%3Btop%3A%2020px%3Bwidth%3A%20fit-content%3Bpadding%3A%2010px%2015px%3Bbackground%3A%20lightgreen%3Bleft%3A%2050%25%3Btransform%3A%20translateX(-50%25)%3Bborder%3A%201px%20outset%20gray%3Bbox-shadow%3A%205px%205px%203px%20%230006%3B%22%3B%0A%20%20%20%20%20%20document.body.appendChild(doneBox)%3B%0A%20%20%20%20%20%20setTimeout(()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20this.document.getElementById(%22doneBox%22).remove()%3B%0A%20%20%20%20%20%20%7D%2C%201000)%3B%0A%20%20%20%20%7D%0A%20%20%7D)%3B%0A%7D%0Aelse%0A%20%20document.querySelector(%22%23helperFrame%22).contentWindow.postMessage(%22Requesting%20data%22%2C%20'*')%3B%7D)()%3B",
-);
+*/
 
 let redips = {},
   rd = REDIPS.drag;
@@ -61,6 +55,7 @@ $("#openModal").on("click", function () {
 $(".closeIns").on("click", function () {
   document.getElementById("insDialog").close();
 });
+/*
 $("#copyCode").on("click", function () {
   var textBox = document.querySelector("#bookmarkletCode");
 
@@ -68,6 +63,7 @@ $("#copyCode").on("click", function () {
   textBox.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(textBox.value);
 });
+*/
 addEventListener("message", async function (event) {
   var sumodbUrl = "http://sumodb.sumogames.de";
 
