@@ -165,6 +165,8 @@ a:hover {
 header a {
   margin-right: 10px;
   color: darkblue;
+  background: white;
+  text-decoration: underline;
 }
 
 ul {
