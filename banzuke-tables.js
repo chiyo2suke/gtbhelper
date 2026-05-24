@@ -2,7 +2,7 @@
 
 export const banzuke1Config = [
   { prefix: "Y", range: [1] },
-  { prefix: "O", range: [1] },
+  { prefix: "O", range: [1, 2] },
   { prefix: "S", range: [1] },
   { prefix: "K", range: [1] },
   { prefix: "M", range: Array.from({ length: 17 }, (_, i) => i + 1) },
@@ -10,11 +10,10 @@ export const banzuke1Config = [
   { prefix: "J", range: Array.from({ length: 14 }, (_, i) => i + 1) },
   { divider: true },
   { prefix: "Ms", range: Array.from({ length: 60 }, (_, i) => i + 1) },
-  { prefix: "TD", range: Array.from({ length: 1 }, (_, i) => i + 1) },
+  { prefix: "TD", range: [1, 2] },
   { divider: true },
-  { prefix: "Sd3", range: [1] },
   { prefix: "", range: [1] },
-  { prefix: "Sd21", range: [1] },
+  { prefix: "Sd6", range: [1] },
 ];
 
 export const banzuke2Config = [
