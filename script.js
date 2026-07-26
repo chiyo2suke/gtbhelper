@@ -906,7 +906,7 @@ if (window.addEventListener)
 else if (window.attachEvent) window.attachEvent("onload", redips.init);
 
 document.addEventListener("DOMContentLoaded", async function () {
-  var basho = "202605"; // The date of the basho just ended
+  var basho = "202607"; // The date of the basho just ended
 
   // This must be a hyperlink
   $("#exportToCsv1").on("click", function (event) {
@@ -930,7 +930,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   // ***************************************************************************
   if (window.localStorage.getItem("savedBanzuke") !== null) {
     var saveDate = Date.parse(window.localStorage.getItem("savedBanzukeTime")),
-      expireDate = new Date(Date.UTC(2026, 4, 24, 9, 20)); //UTC time
+      expireDate = new Date(Date.UTC(2026, 6, 26, 11, 50)); //UTC time
 
     if (saveDate < expireDate) window.localStorage.removeItem("savedBanzuke");
     else {
