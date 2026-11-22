@@ -9,7 +9,9 @@ export const banzuke1Config = [
   { divider: true },
   { prefix: "J", range: Array.from({ length: 14 }, (_, i) => i + 1) },
   { divider: true },
-  { prefix: "Ms", range: Array.from({ length: 60 }, (_, i) => i + 1) }
+  { prefix: "Ms", range: Array.from({ length: 60 }, (_, i) => i + 1) },
+  { divider: true },
+  { prefix: "Sd29", range: [1] },
 ];
 
 export const banzuke2Config = [
@@ -250,15 +252,15 @@ export function writeTableTitles(basho) {
   }
 
   // For second title - need to preserve the span element
-  const existingSpan = tableTitle[3].querySelector("span");
-  tableTitle[3].textContent = `${getBashoName(bashoMonth + 2)} ${nextYear} Makuuchi Guess - `;
+  const existingSpan = tableTitle[4].querySelector("span");
+  tableTitle[4].textContent = `${getBashoName(bashoMonth + 2)} ${nextYear} Makuuchi Guess - `;
   if (existingSpan) {
-    tableTitle[3].appendChild(existingSpan);
-    tableTitle[3].appendChild(
+    tableTitle[4].appendChild(existingSpan);
+    tableTitle[4].appendChild(
       document.createTextNode("/42"),
     );
   }
 
   tableTitle[0].colSpan = "9";
-  tableTitle[3].colSpan = "11";
+  tableTitle[4].colSpan = "11";
 }
