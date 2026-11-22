@@ -930,7 +930,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   // ***************************************************************************
   if (window.localStorage.getItem("savedBanzuke") !== null) {
     var saveDate = Date.parse(window.localStorage.getItem("savedBanzukeTime")),
-      expireDate = new Date(Date.UTC(2026, 10, 22, 13, 57)); //UTC time
+      expireDate = new Date(Date.UTC(2026, 10, 22, 14, 2)); //UTC time
 
     if (saveDate < expireDate) window.localStorage.removeItem("savedBanzuke");
     else {
